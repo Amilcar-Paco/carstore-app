@@ -2,11 +2,13 @@ package com.pacocode.carstore.service;
 
 import com.pacocode.carstore.model.Car;
 import com.pacocode.carstore.repository.CarRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Service
 public class CarService {
     final CarRepository carRepository;
 
@@ -35,4 +37,7 @@ public class CarService {
         carRepository.deleteById(id);
     }
 
+    public Optional<Car> findCarById(UUID id) {
+        return carRepository.findById(id);
+    }
 }
